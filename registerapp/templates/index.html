@@ -1,0 +1,13 @@
+{% extends "registration/base.html" %}
+<h3>Lettuce django demo app register</h3>
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}. Thanks for logging in.</h1>
+    <p><a href="/logout/">Logout</a></p>
+{% else %}
+    <h1>Welcome, new user. Please <a href="/login/">log in.</a></h1>
+    <p>If you don't have an account, you can <a href="/register/">sign
+up</a> for one.
+{% endif %}
+{% endblock %}

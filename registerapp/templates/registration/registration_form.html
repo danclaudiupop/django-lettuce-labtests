@@ -1,0 +1,71 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+
+
+<form class="form-horizontal" action='/register/' method="POST">{% csrf_token %}
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        {{ form.username }}
+      {% if form.username.errors %}
+        <span class="text-error">{{ form.username.errors.as_text }}</span>
+      {% endif %}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        {{ form.email }}
+      {% if form.email.errors %}
+        <span class="text-error">{{ form.email.errors.as_text }}</span>
+      {% endif %}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        {{ form.password1 }}
+      {% if form.password1.errors %}
+        <span class="text-error">{{ form.password1.errors.as_text }}</span>
+      {% endif %}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label" for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        {{ form.password2 }}
+      {% if form.password2.errors %}
+        <span class="text-error">{{ form.password2.errors.as_text }}</span>
+      {% endif %}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success" id="submit">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+
+<p>Fill out the form to the left (all fields are required), and your
+account will be created; you'll be sent an email with instructions on how
+to finish your registration.</p>
+
+{% endblock %}

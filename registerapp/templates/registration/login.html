@@ -1,0 +1,48 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+
+
+<form class="form-horizontal" action='' method="POST">{% csrf_token %}
+  <fieldset>
+    <div id="legend">
+      <legend class="">Login</legend>
+    </div>
+
+    {% if form.errors %}
+      <p class="text-error">Please correct the errors below:</p>
+    {% endif %}
+
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label" for="username">Username</label>
+      <div class="controls">
+        {{ form.username }}
+        {% if form.username.errors %} <span class="text-error">{{ form.username.errors|join:", " }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        {{ form.password }}
+        {% if form.password.errors %} <span class="text-error">{{ form.password.errors|join:", " }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success" id="submit">Login</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<p>If you don't have an account, you can <a href="/register/">sign
+up</a> for one.
+
+{% endblock %}
