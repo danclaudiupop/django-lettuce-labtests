@@ -4,7 +4,7 @@ Feature: Register
 
 
 Scenario: User registers
-    Given I go to the "/register/" URL
+    Given I go to the register page
     When I fill register form with:
         | username | email       | password1 | password2 |
         | danul    | dan@dan.com | test123   | test123   |
@@ -20,6 +20,6 @@ Scenario: Users login
       | username | password |
       | danu     | test123  |
       | lulu     | test123  |
-    When I go to the "/login/" URL
+    When I go to the login page
     And I login as user "danu"
     Then I should see "Welcome, danu. Thanks for logging in."
